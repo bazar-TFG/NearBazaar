@@ -1,0 +1,2 @@
+# NearBazaar
+Application in development.
