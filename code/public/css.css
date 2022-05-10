@@ -1,0 +1,122 @@
+.ir-arriba {
+	padding:0.5rem;
+	background:#9405e6;
+	font-size:0rem;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:7rem;
+	right:1rem;
+  border: 1px solid #c3e627;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  padding: 10px;
+}
+#navbar {
+  background-color: rgb(202, 175, 24);
+}
+
+#footer{
+  background-color: #3282E6;
+}
+
+#principal{
+	margin-bottom: 9rem;
+}
+
+#bazarFull{
+	border: 5px;
+	border-color: black;
+}
+
+#paginacion{
+	margin-top: 2rem;
+}
+
+
+#tarjetolink:hover{
+	background-color: #3282E6;
+	color: #3282E6;
+}
+
+#tarjetolink{
+	text-decoration: none;
+	color:#9405e6;
+}
+
+*{
+	font-family: Apple Chancery, cursive;
+}
+
+
+
+html,body{
+	
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+	}
+  
+  .login-dark form {
+	max-width:320px;
+	width:90%;
+	background-color:#2a053f;
+	padding:40px;
+	border-radius:4px;
+	transform:translate(-50%, -50%);
+	position:absolute;
+	top:50%;
+	left:50%;
+	color:#fff;
+	box-shadow:3px 3px 4px rgba(211, 18, 18, 0.2);
+  }
+  
+  .login-dark .illustration {
+	text-align:center;
+	padding:15px 0 20px;
+	font-size:100px;
+	color:#2980ef;
+  }
+  
+  .login-dark form .form-control {
+	background:none;
+	border:none;
+	border-bottom:1px solid #434a52;
+	border-radius:0;
+	box-shadow:none;
+	outline:none;
+	color:inherit;
+  }
+  
+  .login-dark form .btn-primary {
+	background:#214a80;
+	border:none;
+	border-radius:4px;
+	padding:11px;
+	box-shadow:none;
+	margin-top:26px;
+	text-shadow:none;
+	outline:none;
+  }
+  
+  .login-dark form .btn-primary:hover, .login-dark form .btn-primary:active {
+	background:#214a80;
+	outline:none;
+  }
+  
+  .login-dark form .forgot {
+	display:block;
+	text-align:center;
+	font-size:12px;
+	color:#6f7a85;
+	opacity:0.9;
+	text-decoration:none;
+  }
+  
+  .login-dark form .forgot:hover, .login-dark form .forgot:active {
+	opacity:1;
+	text-decoration:none;
+  }
+  
+  .login-dark form .btn-primary:active {
+	transform:translateY(1px);
+  }

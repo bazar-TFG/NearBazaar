@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  tfg-db:
+    image: mysql:5.7
+    container_name: tfg-db
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - tfg-mysql:/var/lib/mysql/
+    ports:
+      - "3306:3306"
+
+volumes:
+    tfg-mysql:
