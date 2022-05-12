@@ -56,14 +56,14 @@ class SingUp extends React.Component {
         return ( 
         <form id='cuerpoLogin' onSubmit={this.dataSend} autoComplete='on'name='Entrada'>
         <div className="mb-3">
-        <div class="login-dark">
+        <div className="login-dark">
             <form method="post">
-                <h2 class="sr-only">Login Form</h2>
-                <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-                <div class="form-group"><input class="form-control" type="username" name="email" placeholder="Email" onChange={this.dataChange} value={email} /></div>
-                <div class="form-group"><input class="form-control" type="username" name="username" placeholder="Username" onChange={this.dataChange} value={username}/></div>
-                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" onChange={this.dataChange} value={password}/></div>
-                <div class="form-group"><button type="submit" className="btn btn-outline-warning my-2 my-sm-0 text-secondary">Sing Up</button></div>
+                <h2 className="sr-only">Login Form</h2>
+                <div className="illustration"><i className="icon ion-ios-locked-outline"></i></div>
+                <div className="form-group"><input className="form-control" type="username" name="email" placeholder="Email" onChange={this.dataChange} value={email} /></div>
+                <div className="form-group"><input className="form-control" type="username" name="username" placeholder="Username" onChange={this.dataChange} value={username}/></div>
+                <div className="form-group"><input className="form-control" type="password" name="password" placeholder="Password" onChange={this.dataChange} value={password}/></div>
+                <div className="form-group"><button type="submit" className="btn btn-outline-warning my-2 my-sm-0 text-secondary">Sing Up</button></div>
             </form>
         </div>
         </div>

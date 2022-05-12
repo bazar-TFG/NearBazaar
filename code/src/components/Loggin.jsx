@@ -52,7 +52,7 @@ class Loggin extends React.Component {
             cookies.set('email', j.email, {path: "/", sameSite: "strict"})
             }))
           if(res.status === 200){
-            //window.location.href="./home"
+            window.location.href="./home"
           }
         }
         )
@@ -64,20 +64,18 @@ class Loggin extends React.Component {
     render() { 
       const{ username, password} = this.state;
         return (
-          <form id='cuerpoLogin' onSubmit={this.dataSend} autoComplete='on'name='Entrada'>
-                    <div className="mb-3">
-                    <div class="login-dark">
-                        <form method="post">
-                            <h2 class="sr-only">Login Form</h2>
-                            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-                            <div class="form-group"><input class="form-control" type="username" name="username" placeholder="Username" onChange={this.dataChange} value={username}/></div>
-                            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" onChange={this.dataChange} value={password}/></div>
-                            <div class="form-group"><button type="submit" className="btn btn-outline-warning my-2 my-sm-0 text-secondary">Perfe</button></div>
-                            <div><a disabled href="#" class="forgot">Forgot your email or password?</a></div>
+                    <div className="mb-3" id='cuerpoLogin'>
+                    <div className="login-dark">
+                        <form method="post" onSubmit={this.dataSend} autoComplete='on'name='Entrada'>
+                            <h2 className="sr-only">Login Form</h2>
+                            <div className="illustration"><i className="icon ion-ios-locked-outline"></i></div>
+                            <div className="form-group"><input className="form-control" type="username" name="username" placeholder="Username" onChange={this.dataChange} value={username}/></div>
+                            <div className="form-group"><input className="form-control" type="password" name="password" placeholder="Password" onChange={this.dataChange} value={password}/></div>
+                            <div className="form-group"><button type="submit" className="btn btn-outline-warning my-2 my-sm-0 text-secondary">Perfe</button></div>
+                            <div><a disabled href="#" className="forgot">Forgot your email or password?</a></div>
                         </form>
                     </div>
                     </div>
-                    </form> 
          );
     }
 }

@@ -46,12 +46,12 @@ class Ejemplo extends React.Component {
         else{
             return (  
                       
-            <div class="accordion" id="accordion">
+            <div className="accordion" id="accordion">
             {bazaars.map(
                 (bazaar)=>(
                 <div>
-                    <div class="p-3 mb-4 bg-light rounded-5" id='bazarFull'>
-                        <div class="container-fluid py-5">
+                    <div className="p-3 mb-4 bg-light rounded-5" id='bazarFull'>
+                        <div className="container-fluid py-5">
                             
                             <iframe onLoad= {() => this.calle(bazaar.street_location)}
                             
@@ -59,19 +59,19 @@ class Ejemplo extends React.Component {
                             </iframe>
                         </div>
                     </div>     
-                    <div class="row align-items-md-stretch">
-                        <div class="col-md-6">
-                            <div class="h-100 p-3 text-white bg-dark rounded-3">
-                                <h1 class="display-5 fw-bold">{bazaar.street_location}</h1>
+                    <div className="row align-items-md-stretch">
+                        <div className="col-md-6">
+                            <div className="h-100 p-3 text-white bg-dark rounded-3">
+                                <h1 className="display-5 fw-bold">{bazaar.street_location}</h1>
                                 <h2>Tipo de Bazaar: </h2> 
-                                <h3 class="col-md-8 fs-4">{bazaar.tipo}</h3>
+                                <h3 className="col-md-8 fs-4">{bazaar.tipo}</h3>
                                 <h2>Descripcion</h2>
                                 <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
                             </div>
                         </div>
-                        <div class="col-md-6" data-ride="carousel">
-                            <div class="h-100 p-3 bg-light border rounded-3">
-                                <img src={"./images/untrated/" + bazaar.path_untreated_picture} class="card-img-top" alt=""/>
+                        <div className="col-md-6" data-ride="carousel">
+                            <div className="h-100 p-3 bg-light border rounded-3">
+                                <img src={"./images/untrated/" + bazaar.path_untreated_picture} className="card-img-top" alt=""/>
                             </div>
                         </div>
                     </div>

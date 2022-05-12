@@ -44,17 +44,17 @@ class Home extends React.Component {
         else{
             return ( 
             <div>
-                <div id='tarjeto' class="row row-cols-1 row-cols-md-2 g-4">
+                <div id='tarjeto' className="row row-cols-1 row-cols-md-2 g-4">
                     {pageOfItems.map(
                         (bazaar)=>(
                             <Link id='tarjetolink' to={"/ejemplo/" + bazaar.id_bazaar} >
-                                <div class="col">
-                                    <div class="card">
-                                        <img src={"./images/untrated/" + bazaar.path_untreated_picture} class="card-img-top" alt="..."/>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Calle: {bazaar.street_location}</h5>
-                                            <p class="card-text">Tipo: </p>
-                                            <p class="card-text"> 
+                                <div className="col">
+                                    <div className="card">
+                                        <img src={"./images/untrated/" + bazaar.path_untreated_picture} className="card-img-top" alt="..."/>
+                                        <div className="card-body">
+                                            <h5 className="card-title">Calle: {bazaar.street_location}</h5>
+                                            <p className="card-text">Tipo: </p>
+                                            <p className="card-text"> 
                                             {bazaar.tipo}</p>
                                         </div>
                                     </div>
