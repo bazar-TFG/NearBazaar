@@ -99,6 +99,17 @@ router.post('/loggin', (req, res) => {
     });
 
 });
+
+router.get('/userpage/:user', (req, res) => {
+    const { user } = req.params;
+    mysqlConnection.query('SELECT username, email, password FROM user WHERE username = ?;', [user], (err, rows, fields) => {
+        if(!err) {
+            res.json(rows);
+        } else {
+            console.log(err);
+        }
+    });
+});
 /*
 app.post('/', passport.authenticate('local',{
     successRedirect:"http://localhost:3000/home",

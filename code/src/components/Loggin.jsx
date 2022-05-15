@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies()
@@ -50,10 +51,11 @@ class Loggin extends React.Component {
             cookies.set('id', j.id_user, {path: "/", sameSite: "strict"})
             cookies.set('user', j.username, {path: "/", sameSite: "strict"})
             cookies.set('email', j.email, {path: "/", sameSite: "strict"})
+            if(res.status === 200){
+              window.location.href="./"
+            }
             }))
-          if(res.status === 200){
-            window.location.href="./home"
-          }
+          
         }
         )
       .then()
@@ -72,6 +74,7 @@ class Loggin extends React.Component {
                             <div className="form-group"><input className="form-control" type="username" name="username" placeholder="Username" onChange={this.dataChange} value={username}/></div>
                             <div className="form-group"><input className="form-control" type="password" name="password" placeholder="Password" onChange={this.dataChange} value={password}/></div>
                             <div className="form-group"><button type="submit" className="btn btn-outline-warning my-2 my-sm-0 text-secondary">Perfe</button></div>
+                            <div><Link to={"/singup"} className="sing-up">¿No tienes cuenta? Crea una y empieza a poner bazares en linea</Link></div>
                             <div><a disabled href="#" className="forgot">Forgot your email or password?</a></div>
                         </form>
                     </div>

@@ -5,48 +5,45 @@ import Cookies from 'universal-cookie';
 import FormBazaar  from './components/FormBazaar';
 import UpdateBazaar from './components/UpdateBazaar';
 import Loggin from './components/Loggin';
+import SingUp from './components/SingUp';
 import Home from './components/Home';
 import Ejemplo from './components/Ejemplo';
-import SingUp from './components/SingUp';
+import UserPage from './components/UserPage';
 
 const cookies = new Cookies()
 
+var ruta = ""
+var elem
 
- 
-
-/*
-export default function App() {
-    return <div>Tu</div>;
-}
-*/
 function chargeUser() {
 if (cookies.get("id") === undefined){
-    var elem = document.getElementById("loggin_link")
+    ruta = "/loggin"
+    elem = document.getElementById("loggin_link")
     if(typeof elem !== 'undefined' && elem !== null){
-        elem.setAttribute("href", "/loggin");
-        //elem.style.display = "none";
+        elem.innerHTML = '<span className="sr-only">Login/SingUp</span>'
+    }else {
+        setTimeout(chargeUser, 300); // try again in 300 milliseconds
     }
-    //return document.getElementById("link_to_login").style.display = "none";
     
 }else {
-    var elem = document.getElementById("loggin_link")
+    ruta = "/userpage/" + cookies.get("user")
+    elem = document.getElementById("loggin_link")
     if(typeof elem !== 'undefined' && elem !== null){
-        //elem.innerHTML = "<Link className='nav-link' to={'/loggin'}><span>Usuario " + cookies.get("user") + "</span></Link>"
-
         elem.innerHTML = '<span className="sr-only">' + cookies.get("user") + '</span>'
-        elem.setAttribute("href", "/upbz");
-        //elem.style.display = "none";
+        
+    }else {
+        setTimeout(chargeUser, 300); // try again in 300 milliseconds
     }
 }
 }
-//onLoad={chargeUser()}
-//
+
+
+
 const App = () => {
     console.log(cookies.get("id"))
     console.log(cookies.get("user"))
     return (
         <Router>
-
             <nav id="navbar" className="navbar navbar-expand-lg navbar-dark sticky-top" onLoad={chargeUser()}>
                 <div className="container-sm justify-content-evenly">
                     <Link className="navbar-brand" to={"/"}>
@@ -60,8 +57,7 @@ const App = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <div className="navbar-nav" id="login">
-                        <Link className="nav-link" to={"#"} id="loggin_link"><span className="sr-only">Login</span></Link>
-                        <Link className="nav-link" to={"/singup"}><span className="sr-only">Sing Up </span></Link>
+                        <Link className="nav-link" to={ruta} id="loggin_link"></Link>
                         </div>
                         <form className="d-flex ms-auto">
                             <input type="text" className="form-control me-sm-2" placeholder="Search"/>
@@ -78,7 +74,8 @@ const App = () => {
                     <Route path="/loggin" element={<Loggin />}></Route>
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/ejemplo/:id" element={<Ejemplo/>}></Route>
-                    <Route path="/singup" element={<SingUp />}></Route>
+                    <Route path='/singup' element={<SingUp/>}></Route>
+                    <Route path="/userpage/:user" element={<UserPage/>}></Route>
                 </Routes>
             <Link to="/inbz">
                 <span className="ir-arriba icon-arrow-up2">
