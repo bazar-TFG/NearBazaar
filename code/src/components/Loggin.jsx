@@ -16,6 +16,12 @@ class Loggin extends React.Component {
          this.dataSend = this.dataSend.bind(this);
     }
 
+    componentDidMount(){
+      if(cookies.get("user")){
+        window.location.href = "./"
+      }
+    }
+
     dataChange = (e) =>{
       const state = this.state;
       state[e.target.name] = e.target.value;
