@@ -6,7 +6,8 @@ class SingUp extends React.Component {
         this.state = { 
           username:"",
           password:"",
-          email: ""
+          email: "",
+          passwordComp: "",
          }
 
          this.dataChange = this.dataChange.bind(this);
@@ -23,9 +24,10 @@ class SingUp extends React.Component {
       e.preventDefault();
       console.log("Form enviado");
 
-      var {email, username, password} = this.state
+      var {email, username, password, passwordComp} = this.state
 
-      var dataLoggin = {email:email, username:username, password:password} 
+      if (password === passwordComp) {
+        var dataLoggin = {email:email, username:username, password:password} 
       
       //console.log(JSON.stringify(dataLoggin));
         
@@ -48,12 +50,32 @@ class SingUp extends React.Component {
         )
       .then()
       .catch(console.log())
-      
+      } else {
+        this.errorHandler()
+      }
+    }
+
+    async errorHandler() {
+      let elem = document.getElementById("error-singup")
+      if(typeof elem !== 'undefined' && elem !== null){
+          elem.innerHTML ='<div className="card" id="a"><div className="card-body" id="b">This is some text within a card body.</div></div>'
+          await this.sleep(5000);
+          elem.removeChild("b")
+          elem.removeChild("a")
+      }
+    }
+
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
     
     render() { 
-      const{ email, username, password} = this.state;
+      const{ email, username, password, passwordComp} = this.state;
         return ( 
+        <div>
+          <div id="error-singup">
+          
+          </div>
         <form id='cuerpoLogin' onSubmit={this.dataSend} autoComplete='on'name='Entrada'>
         <div className="mb-3">
         <div className="login-dark">
@@ -63,11 +85,13 @@ class SingUp extends React.Component {
                 <div className="form-group"><input className="form-control" type="username" name="email" placeholder="Email" onChange={this.dataChange} value={email} /></div>
                 <div className="form-group"><input className="form-control" type="username" name="username" placeholder="Username" onChange={this.dataChange} value={username}/></div>
                 <div className="form-group"><input className="form-control" type="password" name="password" placeholder="Password" onChange={this.dataChange} value={password}/></div>
+                <div className="form-group"><input className="form-control" type="password" name="password2" placeholder="Confirma tu password" onChange={this.dataChange} value={passwordComp}/></div>
                 <div className="form-group"><button type="submit" className="btn btn-outline-warning my-2 my-sm-0 text-secondary">Sing Up</button></div>
             </form>
         </div>
         </div>
-        </form> 
+        </form>
+        </div>
          );
     }
 }

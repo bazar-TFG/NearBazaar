@@ -26,7 +26,7 @@ if (cookies.get("id") === undefined){
     }
     
 }else {
-    ruta = "/userpage/" + cookies.get("user")
+    ruta = "/userpage/" + cookies.get("id")
     elem = document.getElementById("loggin_link")
     if(typeof elem !== 'undefined' && elem !== null){
         elem.innerHTML = '<span className="sr-only">' + cookies.get("user") + '</span>'

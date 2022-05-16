@@ -57,9 +57,9 @@ router.post('/create_user', (req, res) => {
 
 
 router.put('/us/put/:id_user', (req, res) => {
-    const { username } = req.body;
+    const { username, password } = req.body;
     const { id_user } = req.params;
-    mysqlConnection.query('update user set username=? where id_user=?;', [username, id_user], (err, rows, fields) => {
+    mysqlConnection.query('update user set username=?, password=? where id_user=?;', [username, password, id_user], (err, rows, fields) => {
         if(!err) {
             res.json({Status: 'Username Updated'});
         } else {
@@ -100,9 +100,9 @@ router.post('/loggin', (req, res) => {
 
 });
 
-router.get('/userpage/:user', (req, res) => {
-    const { user } = req.params;
-    mysqlConnection.query('SELECT username, email, password FROM user WHERE username = ?;', [user], (err, rows, fields) => {
+router.get('/userpage/:id_user', (req, res) => {
+    const { id_user } = req.params;
+    mysqlConnection.query('SELECT username, email, password FROM user WHERE id_user = ?;', [id_user], (err, rows, fields) => {
         if(!err) {
             res.json(rows);
         } else {
